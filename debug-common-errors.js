@@ -27,9 +27,11 @@ Think about which debugging methods you found most useful and how you might appl
 console.log("Welcome to the bootcamp
 
 // What’s Wrong?
+  // This coding is missing the end " and ) in order for the program to recognize the variable.
 
+console.log("Welcome to the bootcamp!") //correct
 
-// Program B
+  // Program B
 // Description:
 // This code attempts to multiply each number in an array by 2 and display the results. However, it crashes at runtime.
 
@@ -40,8 +42,14 @@ for (let i = 0; i < numbers.length; i++) {
 }
 
 // What’s Wrong?
+  // One of the numbers is a string. It needs to either be a string or converted
+// New coding with the edit.
 
-
+let numbers = [2, 4, 8];
+for (let i = 0; i < numbers.length; i++) {
+  let doubled = numbers[i] * 2;
+  console.log(doubled);
+}
 
 // Program C (Logic Error)
 // Description:
@@ -60,3 +68,19 @@ function isPrime(num) {
 console.log(isPrime(7)); // Expected true but gets false
 
 // What’s Wrong?
+  // When num % i === 0, that means the number is divisible by i, so it is not prime. In that case, you should return false, not true.
+  //At the end of the loop, if no divisors were found, then the number is prime, so you should return true, not false.
+  // 
+
+// Corrected codeing
+function isPrime(num) {
+  if (num < 2) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false; // Not prime
+    }
+  }
+  return true; // Prime
+}
+
+console.log(isPrime(7)); // true
